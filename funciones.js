@@ -51,4 +51,3 @@ document.write(resultado);
 //     document.write(frase)
 // }
 // saludar("Jeison")
-
