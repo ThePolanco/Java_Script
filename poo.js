@@ -1,4 +1,3 @@
-
 class animal{
     constructor(especie, edad, color){
         this.especie = especie;
