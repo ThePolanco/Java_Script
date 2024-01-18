@@ -53,46 +53,133 @@
 //     document.write(resultado)
 // }
 
-const sumar = (num1,num2)=>{
-    return parseInt(num1) + parseInt(num2);
-}
-const restar = (num1,num2)=>{
-    return parseInt(num1) - parseInt(num2);
-}
-const multiplicar = (num1,num2)=>{
-    return parseInt(num1) * parseInt(num2);
-}
-const dividir = (num1,num2)=>{
-    return parseInt(num1) / parseInt(num2);
+// const sumar = (num1,num2)=>{
+//     return parseInt(num1) + parseInt(num2);
+// }
+// const restar = (num1,num2)=>{
+//     return parseInt(num1) - parseInt(num2);
+// }
+// const multiplicar = (num1,num2)=>{
+//     return parseInt(num1) * parseInt(num2);
+// }
+// const dividir = (num1,num2)=>{
+//     return parseInt(num1) / parseInt(num2);
+// }
+
+// alert("Que operación deseas realizar?: ");
+// operacion = prompt("1.Suma, 2.Resta, 3.Multiplicación, 4.División");
+
+// if(operacion == 1){
+//     let numero1 = prompt("Numero 1");
+//     let numero2 = prompt("Numero 2");
+//     resultado = sumar(numero1,numero2);
+//     alert("Resultado: " + resultado);
+// }
+// else if(operacion == 2){
+//     let numero1 = prompt("Numero 1");
+//     let numero2 = prompt("Numero 2");
+//     resultado = restar(numero1,numero2);
+//     alert("Resultado: " + resultado);
+// }
+// else if(operacion == 3){
+//     let numero1 = prompt("Numero 1");
+//     let numero2 = prompt("Numero 2");
+//     resultado = multiplicar(numero1,numero2);
+//     alert("Resultado: " + resultado);
+// }
+// else if(operacion == 4){
+//     let numero1 = prompt("Numero 1");
+//     let numero2 = prompt("Numero 2");
+//     resultado = dividir(numero1,numero2);
+//     alert("Resultado: " + resultado);
+// }
+// else{
+//     alert("No se ha encontrado la operación")
+// }
+
+
+
+//POO 
+class Celular {
+  constructor(color, peso, tamaño, rdc, ram) {
+    this.color = color;
+    this.peso = peso;
+    this.tamaño = tamaño;
+    this.rdc = rdc;
+    this.ram = ram;
+    this.encendido = false;
+  }
+
+  presionarBotonEncendido() {
+    if (this.encendido == false) {
+      alert("Celular prendido");
+      this.encendido = true;
+    } else {
+      alert("Celular apagado");
+      this.encendido = false;
+    }
+  }
+
+  reiniciar() {
+    if (this.encendido == true) {
+      alert("Reiniciando celular");
+    } else {
+      alert("El celular está apagado");
+    }
+  }
+
+  tomarFoto() {
+    alert("Foto tomada en una resolución de: " + this.tamaño);
+  }
+
+  grabarVideo() {
+    alert("Video grabado en: " + this.rdc);
+  }
+  mobileInfo() {
+    return `
+        Color: <b>${this.color}</b></br>
+        Peso: <b>${this.peso}</b></br>
+        Tamaño: <b>${this.tamaño}</b></br>
+        Memoria RAM: <b>${this.ram}</b></br>
+        Resolución de video: <b>${this.rdc}</b></br>
+        `;
+  }
 }
 
-alert("Que operación deseas realizar?: ");
-operacion = prompt("1.Suma, 2.Resta, 3.Multiplicación, 4.División");
+class celularAltaGama extends Celular {
+  constructor(color, peso, tamaño, rdc, ram, rdce) {
+    super(color, peso, tamaño, rdc, ram);
+    this.resolucionDeCamaraExtra = rdce;
+  }
+  grabarVideoLento() {
+    alert("Estás grabando en cámara lenta");
+  }
+  reconocimientoFacial() {
+    alert("Vamos a realizar un reconocimiento facial");
+  }
+  infoAltaGama() {
+    return this.mobileInfo() + `Resolución de cámara extra: <b>${this.resolucionDeCamaraExtra}</b> <br>`;
+  }
+}
 
-if(operacion == 1){
-    let numero1 = prompt("Numero 1");
-    let numero2 = prompt("Numero 2");
-    resultado = sumar(numero1,numero2);
-    alert("Resultado: " + resultado);
-}
-else if(operacion == 2){
-    let numero1 = prompt("Numero 1");
-    let numero2 = prompt("Numero 2");
-    resultado = restar(numero1,numero2);
-    alert("Resultado: " + resultado);
-}
-else if(operacion == 3){
-    let numero1 = prompt("Numero 1");
-    let numero2 = prompt("Numero 2");
-    resultado = multiplicar(numero1,numero2);
-    alert("Resultado: " + resultado);
-}
-else if(operacion == 4){
-    let numero1 = prompt("Numero 1");
-    let numero2 = prompt("Numero 2");
-    resultado = dividir(numero1,numero2);
-    alert("Resultado: " + resultado);
-}
-else{
-    alert("No se ha encontrado la operación")
-}
+celular1 = new Celular("Rojo", "130g", "4'", "Full HD", "2GB");
+celular2 = new Celular("Azul", "140g", "5'", "HD", "8GB");
+celular3 = new Celular("Gris", "150g", "3'", "Full HD", "16GB");
+
+//   celular1.presionarBotonEncendido();
+//   celular1.tomarFoto();
+//   celular1.grabarVideo();
+//   celular1.reiniciar();
+//   celular1.presionarBotonEncendido();
+
+celular4 = new celularAltaGama("Negro", "120g", "5.2'", "4k", "16GB", "Full HD");
+celular5 = new celularAltaGama("Blanco", "130g", "5.1'", "4k", "8GB", "Full HD");
+
+document.write(`
+    ${celular1.mobileInfo()} <br>
+    ${celular2.mobileInfo()} <br>
+    ${celular3.mobileInfo()} <br>
+    ${celular4.infoAltaGama()} <br>
+    ${celular5.infoAltaGama()} <br>
+    `);
+
