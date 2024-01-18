@@ -100,86 +100,145 @@
 
 
 //POO 
-class Celular {
-  constructor(color, peso, tamaño, rdc, ram) {
-    this.color = color;
+// class Celular {
+//   constructor(color, peso, tamaño, rdc, ram) {
+//     this.color = color;
+//     this.peso = peso;
+//     this.tamaño = tamaño;
+//     this.rdc = rdc;
+//     this.ram = ram;
+//     this.encendido = false;
+//   }
+
+//   presionarBotonEncendido() {
+//     if (this.encendido == false) {
+//       alert("Celular prendido");
+//       this.encendido = true;
+//     } else {
+//       alert("Celular apagado");
+//       this.encendido = false;
+//     }
+//   }
+
+//   reiniciar() {
+//     if (this.encendido == true) {
+//       alert("Reiniciando celular");
+//     } else {
+//       alert("El celular está apagado");
+//     }
+//   }
+
+//   tomarFoto() {
+//     alert("Foto tomada en una resolución de: " + this.tamaño);
+//   }
+
+//   grabarVideo() {
+//     alert("Video grabado en: " + this.rdc);
+//   }
+//   mobileInfo() {
+//     return `
+//         Color: <b>${this.color}</b></br>
+//         Peso: <b>${this.peso}</b></br>
+//         Tamaño: <b>${this.tamaño}</b></br>
+//         Memoria RAM: <b>${this.ram}</b></br>
+//         Resolución de video: <b>${this.rdc}</b></br>
+//         `;
+//   }
+// }
+
+// class celularAltaGama extends Celular {
+//   constructor(color, peso, tamaño, rdc, ram, rdce) {
+//     super(color, peso, tamaño, rdc, ram);
+//     this.resolucionDeCamaraExtra = rdce;
+//   }
+//   grabarVideoLento() {
+//     alert("Estás grabando en cámara lenta");
+//   }
+//   reconocimientoFacial() {
+//     alert("Vamos a realizar un reconocimiento facial");
+//   }
+//   infoAltaGama() {
+//     return this.mobileInfo() + `Resolución de cámara extra: <b>${this.resolucionDeCamaraExtra}</b> <br>`;
+//   }
+// }
+
+// celular1 = new Celular("Rojo", "130g", "4'", "Full HD", "2GB");
+// celular2 = new Celular("Azul", "140g", "5'", "HD", "8GB");
+// celular3 = new Celular("Gris", "150g", "3'", "Full HD", "16GB");
+
+// //   celular1.presionarBotonEncendido();
+// //   celular1.tomarFoto();
+// //   celular1.grabarVideo();
+// //   celular1.reiniciar();
+// //   celular1.presionarBotonEncendido();
+
+// celular4 = new celularAltaGama("Negro", "120g", "5.2'", "4k", "16GB", "Full HD");
+// celular5 = new celularAltaGama("Blanco", "130g", "5.1'", "4k", "8GB", "Full HD");
+
+// document.write(`
+//     ${celular1.mobileInfo()} <br>
+//     ${celular2.mobileInfo()} <br>
+//     ${celular3.mobileInfo()} <br>
+//     ${celular4.infoAltaGama()} <br>
+//     ${celular5.infoAltaGama()} <br>
+//     `);
+
+class App{
+  constructor(descargas,puntuacion,peso){
+    this.descargas = descargas;
+    this.puntuacion = puntuacion;
     this.peso = peso;
-    this.tamaño = tamaño;
-    this.rdc = rdc;
-    this.ram = ram;
-    this.encendido = false;
+    this.iniciada = false;
+    this.instalada = false;
   }
-
-  presionarBotonEncendido() {
-    if (this.encendido == false) {
-      alert("Celular prendido");
-      this.encendido = true;
-    } else {
-      alert("Celular apagado");
-      this.encendido = false;
+  instalar(){
+    if(this.instalada == false){
+      this.instalada = true;
+      alert("App instalada correctamente");
     }
   }
-
-  reiniciar() {
-    if (this.encendido == true) {
-      alert("Reiniciando celular");
-    } else {
-      alert("El celular está apagado");
+  desinstalar(){
+    if(this.instalada = true){
+      this.instalada = false;
+      alert("App desinstalada correctamente");
     }
   }
-
-  tomarFoto() {
-    alert("Foto tomada en una resolución de: " + this.tamaño);
+  abrir(){
+    if(this.iniciada == false && this.instalada == true){
+      this.iniciada = true;
+      alert("App iniciada");
+    }
   }
-
-  grabarVideo() {
-    alert("Video grabado en: " + this.rdc);
+  cerrar(){
+    if(this.iniciada == true && this.instalada == true){
+      this.iniciada = false;
+      alert("App cerrada");
+    }
   }
-  mobileInfo() {
+  appInfo(){
     return `
-        Color: <b>${this.color}</b></br>
-        Peso: <b>${this.peso}</b></br>
-        Tamaño: <b>${this.tamaño}</b></br>
-        Memoria RAM: <b>${this.ram}</b></br>
-        Resolución de video: <b>${this.rdc}</b></br>
-        `;
+    Descargas: <b>${this.descargas}</b></br>
+    Puntuación: <b>${this.puntuacion}</b></br>
+    Peso: <b>${this.peso}</b></br>
+    `
   }
 }
 
-class celularAltaGama extends Celular {
-  constructor(color, peso, tamaño, rdc, ram, rdce) {
-    super(color, peso, tamaño, rdc, ram);
-    this.resolucionDeCamaraExtra = rdce;
-  }
-  grabarVideoLento() {
-    alert("Estás grabando en cámara lenta");
-  }
-  reconocimientoFacial() {
-    alert("Vamos a realizar un reconocimiento facial");
-  }
-  infoAltaGama() {
-    return this.mobileInfo() + `Resolución de cámara extra: <b>${this.resolucionDeCamaraExtra}</b> <br>`;
-  }
-}
+app = new App("16.000","5 estrellas","800mb");
+app2 = new App("160.000","4 estrellas","1000mb");
+app3 = new App("11.000","4 estrellas","200mb");
+app4 = new App("1.000","3 estrellas","300mb");
+app5 = new App("3.000","2 estrellas","400mb");
+app6 = new App("500.000","5 estrellas","1800mb");
+app7 = new App("2.000","4 estrellas","130mb");
 
-celular1 = new Celular("Rojo", "130g", "4'", "Full HD", "2GB");
-celular2 = new Celular("Azul", "140g", "5'", "HD", "8GB");
-celular3 = new Celular("Gris", "150g", "3'", "Full HD", "16GB");
-
-//   celular1.presionarBotonEncendido();
-//   celular1.tomarFoto();
-//   celular1.grabarVideo();
-//   celular1.reiniciar();
-//   celular1.presionarBotonEncendido();
-
-celular4 = new celularAltaGama("Negro", "120g", "5.2'", "4k", "16GB", "Full HD");
-celular5 = new celularAltaGama("Blanco", "130g", "5.1'", "4k", "8GB", "Full HD");
 
 document.write(`
-    ${celular1.mobileInfo()} <br>
-    ${celular2.mobileInfo()} <br>
-    ${celular3.mobileInfo()} <br>
-    ${celular4.infoAltaGama()} <br>
-    ${celular5.infoAltaGama()} <br>
-    `);
-
+  ${app.appInfo()}<br>
+  ${app2.appInfo()}<br>
+  ${app3.appInfo()}<br>
+  ${app4.appInfo()}<br>
+  ${app5.appInfo()}<br>
+  ${app6.appInfo()}<br>
+  ${app7.appInfo()}<br>
+  `)
