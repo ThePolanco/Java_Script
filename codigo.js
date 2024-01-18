@@ -11,6 +11,7 @@ let nombre = prompt("Hola: ")
 alert("Hola " + nombre)
 */
 
+
 numero = 12;
-numero += 5;
+numero += 12;
 document.write(numero)
