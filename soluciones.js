@@ -96,5 +96,3 @@ else if(operacion == 4){
 else{
     alert("No se ha encontrado la operación")
 }
-
-
